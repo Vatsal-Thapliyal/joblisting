@@ -13,7 +13,7 @@ connectDB();
 require("./workers/jobImport.worker");
 console.log("Worker initialized");
 
-cron.schedule("* * * * *", () => {
+cron.schedule("0 2 * * *", () => {
   console.log("Running scheduled job import at:", new Date().toISOString());
   fetchJobs().catch(err => {
     console.error("Cron job error:", err);
